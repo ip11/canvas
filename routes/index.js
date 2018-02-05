@@ -26,7 +26,7 @@ router.post("/", function(req,res,next){
 
 
 
-    res.render("formsubmitted",{title:"form submitted"})
+    res.redirect("/showallusers")
 
 })
 router.get("/showallusers", function(req,res, next){
@@ -41,5 +41,89 @@ router.get("/showallusers", function(req,res, next){
     });
 
 })
+
+
+
+router.post("/delete", function(req,res,next){
+
+  User.remove({ _id: req.body._id }, function(err) {
+    if (err) {
+      console.log(err)
+    }
+
+    res.redirect("/showallusers");
+
+
+
+
+  });
+
+
+
+
+})
+
+
+
+router.get('/update/:id', function(req, res, next) {
+
+
+  console.log(req.params.id)
+
+
+
+  User.find({_id:req.params.id}, function(err, users){
+
+
+    console.log(users)
+    res.render('update', { users: users });
+
+
+
+  })
+  //
+  // User.findOneAndUpdate({_id: req.}, {$set:{name:"Naomi"}}, {new: true}, function(err, doc){
+  //   if(err){
+  //     console.log("Something wrong when updating data!");
+  //   }
+  //
+  //   console.log(doc);
+  // });
+
+
+
+});
+
+
+
+router.post('/update/:id', function(req, res, next) {
+
+
+  console.log(req.params.id)
+
+
+
+  User.findOneAndUpdate({_id:req.params.id},{$set: {_id: req.body.firstName, lastNameName: req.body.lastNameName}}, function(err, users){
+
+    console.log(users)
+    res.redirect("/showallusers");
+
+
+
+  })
+  //
+  // User.findOneAndUpdate({_id: req.}, {$set:{name:"Naomi"}}, {new: true}, function(err, doc){
+  //   if(err){
+  //     console.log("Something wrong when updating data!");
+  //   }
+  //
+  //   console.log(doc);
+  // });
+
+
+
+});
+
+
 
 module.exports = router;

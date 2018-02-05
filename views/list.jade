@@ -1,4 +1,8 @@
-ul
+div
     each user in users
-        li= user.firstName
-        a(href="#") delete
+        ul
+            li= user.firstName
+            form(action="/delete" method="post")
+                input(type="hidden" value=user._id name="_id")
+                input( type="submit" value="delete")
+            a(href="/update/"+user._id) Update
