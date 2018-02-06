@@ -103,7 +103,7 @@ router.post('/update/:id', function(req, res, next) {
 
 
 
-  User.findOneAndUpdate({_id:req.params.id},{$set: {_id: req.body.firstName, lastNameName: req.body.lastNameName}}, function(err, users){
+  User.findOneAndUpdate({_id:req.params.id},{$set: {firstName: req.body.firstName, lastNameName: req.body.lastNameName}}, function(err, users){
 
     console.log(users)
     res.redirect("/showallusers");

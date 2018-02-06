@@ -4,6 +4,8 @@
  * Module dependencies.
  */
 
+var x =1
+console.log(x);
 var app = require('../app');
 var debug = require('debug')('mynewproject:server');
 var http = require('http');
