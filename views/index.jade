@@ -1,11 +1,27 @@
-<html>
-<body>
-<form action="/" method="POST">
-First firstname:<br>
-<input type="text" name="firstname" value="Mickey"><br>
-Last lastname:<br>
-<input type="text" name="lastname" value="Mouse"><br><br>
-<input type="submit" value="Submit">
-</form>
-</body>
-</html>
+html
+    body
+        p signup
+        form#form(action='/', method='POST')
+            | First firstname:
+            br
+            input(type='text', name='firstname',)
+            br
+            | Last lastname:
+            br
+            input(type='text', name='lastname', )
+            br
+            | Email
+            br
+            input(type='text', name='email', )
+            br
+            | Password
+            br
+            input(type='text', name='password', )
+            br
+            | Confirm Password
+            br
+            input(type='text', name='password2', )
+            br
+            button( value="click") button
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js')
+        script(src="x.js")

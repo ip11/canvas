@@ -37,7 +37,7 @@ router.get("/showallusers", function(req,res, next){
     User.find({}, function(err, users) {
 
         console.log(err, users)
-        res.render("list", {users : users})
+        res.render("list", {users : users}) 
     });
 
 })
