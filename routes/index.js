@@ -29,6 +29,32 @@ router.post("/", function(req,res,next){
     res.redirect("/showallusers")
 
 })
+
+
+router.post("/forajax", function(req,res,next){
+
+
+
+  var person = new User({firstName: req.body.firstname, lastNameName:req.body.lastname});
+  person.save(function(){
+
+
+    User.find({}, function(err, users) {
+
+      console.log(err, users)
+      res.json({
+        users:users
+      })
+    });
+  });
+
+
+
+
+})
+
+
+
 router.get("/showallusers", function(req,res, next){
 
 
