@@ -39,20 +39,34 @@ router.post("/forajax", function(req,res,next){
 
 
 
+  req.checkBody("email", "Enter a valid email address.").isEmail();
 
 
-  var person = new User({firstName: req.body.firstname, lastNameName:req.body.lastname, email:req.body.email, password:req.body.password});
-  person.save(function(){
+  req.checkBody('password2', 'Password doesnt match').equals(req.body.password);
 
 
-    User.find({}, function(err, users) {
 
-      console.log(err, users)
-      res.json({
-        users:users
-      })
+
+  var errors = req.validationErrors();
+  if (errors) {
+    res.json({errors:errors});
+    return;
+  } else {
+    var person = new User({firstName: req.body.firstname, lastNameName:req.body.lastname, email:req.body.email, password:req.body.password});
+    person.save(function(){
+
+
+      User.find({}, function(err, users) {
+
+        console.log(err, users)
+        res.json({
+          users:users
+        })
+      });
     });
-  });
+
+  }
+
 
 
 

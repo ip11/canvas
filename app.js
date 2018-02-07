@@ -15,7 +15,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 
-
+const expressValidator = require('express-validator');
+app.use(expressValidator());
 
 
 
