@@ -7,7 +7,10 @@ var router = express.Router();
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/teja");
 var nameSchema = new mongoose.Schema({
-    firstName: String,
+    firstName: {
+      type:String,
+
+    },
     lastNameName: String,
     email:String,
     password:String
@@ -169,6 +172,8 @@ router.post('/update/:id', function(req, res, next) {
 
 
 });
+
+
 
 
 
