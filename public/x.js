@@ -22,24 +22,29 @@ $("#email,#password,#password2").on("input", function(){
 
 
 
-//option A
-// $("#form").submit(function(e){
-//   e.preventDefault()
-//   $.ajax({
-//     method: "POST",
-//     url: "/forajax",
-//     data: {firstname: $("#firstname").val(), lastname: $("#lastname").val()}
-//   })
-//     .done(function (msg) {
-//
-//       console.log(msg);
-//
-//
-//       $("#form").hide()
-//       $('#users').append($('<p></p>').text(JSON.stringify(msg)));
-//
-//       // $("#users").append($("p"));
-//     });
-// });
+$("#form").submit(function(e){
+  e.preventDefault()
+  $.ajax({
+    method: "POST",
+    url: "/forajax",
+    data: {
+      firstname: $("#firstname").val(),
+      lastname: $("#lastname").val(),
+      email: $("#email").val(),
+      password: $("#password").val(),
+      password2: $("#password").val()
+    }
+  })
+    .done(function (msg) {
+
+      console.log(msg);
+
+
+      $("#form").hide()
+      $('#users').append($('<p></p>').text(JSON.stringify(msg)));
+
+      // $("#users").append($("p"));
+    });
+});
 
 

@@ -8,7 +8,9 @@ var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/teja");
 var nameSchema = new mongoose.Schema({
     firstName: String,
-    lastNameName: String
+    lastNameName: String,
+    email:String,
+    password:String
 });
 
 var User = mongoose.model("User", nameSchema)
@@ -33,9 +35,13 @@ router.post("/", function(req,res,next){
 
 router.post("/forajax", function(req,res,next){
 
+  console.log(req.body)
 
 
-  var person = new User({firstName: req.body.firstname, lastNameName:req.body.lastname});
+
+
+
+  var person = new User({firstName: req.body.firstname, lastNameName:req.body.lastname, email:req.body.email, password:req.body.password});
   person.save(function(){
 
 
