@@ -34,8 +34,6 @@ router.post("/", function(req,res,next){
     res.redirect("/showallusers")
 
 })
-
-
 router.post("/forajax", function(req,res,next){
 
   console.log(req.body)
@@ -115,20 +113,10 @@ router.post("/delete", function(req,res,next){
 
 
 router.get('/update/:id', function(req, res, next) {
-
-
-  console.log(req.params.id)
-
-
-
+  console.log(req.params.id);
   User.find({_id:req.params.id}, function(err, users){
-
-
     console.log(users)
     res.render('update', { users: users });
-
-
-
   })
   //
   // User.findOneAndUpdate({_id: req.}, {$set:{name:"Naomi"}}, {new: true}, function(err, doc){
@@ -138,9 +126,6 @@ router.get('/update/:id', function(req, res, next) {
   //
   //   console.log(doc);
   // });
-
-
-
 });
 
 
