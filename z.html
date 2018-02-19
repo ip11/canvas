@@ -28,8 +28,8 @@
 
 
 
- var x = 0
- var y =200
+ var x = 50
+ var y =500
 
 
 
@@ -41,7 +41,7 @@
    ctx.moveTo(x,y);
 
    x= x+0.1;
-   y = 200 - 100*Math.sin(x/100);
+   y = 500-500*Math.sin((x-50)/100);
    ctx.lineTo(x,y);
    ctx.stroke();
 
