@@ -24,9 +24,6 @@ $("#form").submit(function(e){
   })
     .done(function (msg) {
 
-      console.log(msg);
-
-
       $("#form").hide()
       $('#users').append($('<p></p>').text(JSON.stringify(msg)));
 

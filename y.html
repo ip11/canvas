@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="800"></canvas>
+<script>
+
+
+  draw();
+
+
+function draw() {
+  var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = 'green';
+    ctx.fillRect(10, 10, 500, 50);
+
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(30, 300, 50, 50);
+
+
+
+
+
+  ctx.beginPath();
+
+
+  var start = 0
+  var end =0
+  var radius = 0
+
+  setInterval(function(){
+
+    start =end;
+    end = end + 0.1
+    radius = radius + 0.05
+
+
+    ctx.arc(300, 300,radius,start,end, 0);
+    ctx.stroke();
+
+  },10)
+
+}
+
+
+
+  document.getElementById("canvas").addEventListener("click", clickTriggered);
+
+
+
+function clickTriggered(e){
+
+
+
+console.log(e.x,e.y)
+  //console.log(arguments[0], arguments[1]);
+}
+
+
+
+//  clickTriggered("arg1", "arg2");
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="left:100px;top:100px;align:right" align="right">
+<canvas id="canvas" width="1000" height="800" ></canvas>
+<script>
+
+
+ var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+
+
+
+ ctx.beginPath();
+ ctx.moveTo(50,500);
+ ctx.lineTo(800,500);
+ ctx.stroke();
+
+
+
+ ctx.beginPath();
+ ctx.moveTo(50,500);
+ ctx.lineTo(50,50);
+ ctx.stroke();
+
+
+
+ var x = 0
+ var y =200
+
+
+
+ setInterval(function(){
+
+
+
+   ctx.beginPath();
+   ctx.moveTo(x,y);
+
+   x= x+0.1;
+   y = 200 - 100*Math.sin(x/100);
+   ctx.lineTo(x,y);
+   ctx.stroke();
+
+
+   console.log(x,y)
+
+ }, 1)
+
+</script>
+</body>
+</html>
