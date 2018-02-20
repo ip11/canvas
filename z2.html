@@ -4,7 +4,7 @@
 
 <canvas id="myCanvas" width="3000" height="3000" style="border:1px solid #d3d3d3;">
     Your browser does not support the HTML5 canvas tag.</canvas>
-
+<img src="wtf.jpg" id="x">
 <script>
 
   var c = document.getElementById("myCanvas");
@@ -19,6 +19,9 @@
 
 //var secsangle = 0;
   setInterval(function(){
+
+
+
     var date = new Date()
 
 //    secsangle+=6;
@@ -26,7 +29,12 @@
 //    ctx.rotate(6/ 360);
 
     ctx.clearRect(0, 0, c.width, c.height);
+//    ctx.font = "20px Arial";
+//    ctx.fillText("6", 0, 350);
 
+
+    var img=document.getElementById("x");
+    ctx.drawImage(img,-250,-200);
 
     ctx.beginPath();
     ctx.moveTo(0,0);
