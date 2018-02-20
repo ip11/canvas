@@ -14,10 +14,14 @@
 
   ctx.translate( 500, 500 );
 
-var secsangle = 0;
-  setInterval(function(){
 
-    secsangle+=6;
+  var clockradius =300
+
+//var secsangle = 0;
+  setInterval(function(){
+    var date = new Date()
+
+//    secsangle+=6;
 
 //    ctx.rotate(6/ 360);
 
@@ -26,52 +30,30 @@ var secsangle = 0;
 
     ctx.beginPath();
     ctx.moveTo(0,0);
-    console.log("line coordinates are ", 0,0, 1000*Math.sin(secsangle*Math.PI/360), 1000*Math.cos(secsangle*Math.PI/360))
-    ctx.lineTo(1000*Math.sin(secsangle*Math.PI/360), 1000*Math.cos(secsangle*Math.PI/360));
+
+    ctx.lineTo(clockradius*Math.sin(date.getSeconds()*Math.PI/360), clockradius*Math.cos(date.getSeconds()*Math.PI/360));
+    ctx.stroke();
+
+
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+
+    ctx.lineTo(clockradius*Math.sin(date.getMinutes()*Math.PI/360), clockradius*Math.cos(date.getMinutes()*Math.PI/360));
+    ctx.stroke();
+
+
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+
+    ctx.lineTo(clockradius*Math.sin(date.getHours()*Math.PI/360), clockradius*Math.cos(date.getHours()*Math.PI/360));
     ctx.stroke();
 
 
   },1000)
 
 
-  var minangle =0
-  setInterval(function(){
-
-    minangle+=6;
-
-//    ctx.rotate(6/ 360);
 
 
-
-
-    ctx.beginPath();
-    ctx.moveTo(0,0);
-    console.log("line coordinates are ", 0,0, 1000*Math.sin(minangle*Math.PI/360), 1000*Math.cos(angminanglele*Math.PI/360))
-    ctx.lineTo(1000*Math.sin(minangle*Math.PI/360), 1000*Math.cos(minangle*Math.PI/360));
-    ctx.stroke();
-
-
-  },1000*60)
-
-
-  var hourangle =0
-  setInterval(function(){
-
-    hourangle+=6;
-
-//    ctx.rotate(6/ 360);
-
-
-
-
-    ctx.beginPath();
-    ctx.moveTo(0,0);
-    console.log("line coordinates are ", 0,0, 1000*Math.sin(hourangle*Math.PI/360), 1000*Math.cos(hourangle*Math.PI/360))
-    ctx.lineTo(1000*Math.sin(hourangle*Math.PI/360), 1000*Math.cos(hourangle*Math.PI/360));
-    ctx.stroke();
-
-
-  },1000*60*60)
 
 </script>
 
